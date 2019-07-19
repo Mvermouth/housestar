@@ -1,0 +1,17 @@
+<view class="login-page">
+  <view class="wraploading"  wx:if="{{loadingPic}}">
+    <image src="/images/view.jpg" class="wechat-icon" animation="{{ani}}"></image> 
+  </view>
+  <view class="box">
+    <image src="/images/ava-default.png" class="logo"></image>
+    <text class="name">房源星球</text>
+     <button class="btn-item"  wx:if="{{canGetPhone}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNum">
+      <image src="/images/phone-icon.png" class="wechat-icon"></image> 
+      <text class="btn-text">手机认证</text>
+    </button>
+    <button class="btn-item"  wx:if="{{canIUse}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      <image src="/images/wechat-icon.png" class="wechat-icon"></image> 
+      <text class="btn-text">微信登录</text>
+    </button>
+  </view>
+</view>

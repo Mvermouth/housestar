@@ -1,0 +1,66 @@
+/* pages/login/login.wxss */
+page{height:100%}
+.login-page{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.wraploading{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index:10;
+  width: 100%;
+  height:100%;
+}
+.wraploading image{
+  width: 100%;
+  height:100%;
+}
+.box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  padding-top: 110rpx;
+}
+.box .logo{
+  width: 135rpx;
+  height: 135rpx;
+  border-radius: 50%;
+  background: #ccc;
+}
+.box .name{
+  font-size: 36rpx;
+  color: #333;
+  margin-top:24rpx;
+  letter-spacing:1px;
+
+}
+.login-page .btn-item{
+  width: 92%;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 450rpx;
+  background-color: #00bb5c;
+  border-radius: 4rpx;
+}
+.login-page .btn-item:active{
+  background-color: #4ccf8d;
+}
+.login-page .btn-item .wechat-icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 5px;
+}
+.login-page .btn-item .btn-text{
+  color: #fff;
+  font-size: 30rpx;
+}
+.hide{
+  display:none;
+}

@@ -1,0 +1,40 @@
+<view class="person-wrap">
+  <view class="person-head">
+    <text class="person-head-tap person-head-left" animation="{{aniLeft}}" id="okmsg" bindtap='tap_events'>我的房源</text>
+    <text class="person-head-tap person-head-right" animation="{{aniRight}}" id="waitmsg" bindtap='tap_events'>待审核</text>
+  </view>
+  <view class="person-content">
+    <scroll-view wx:if="{{tapStatus}}" animation="{{contentLeft}}" scroll-y style="opacity:0;height: calc(100% - 10px);width:calc(100% - 10px);padding:5px;">
+      <block  wx:if="{{leftArray.length > 0}}">
+        <view wx:for="{{leftArray}}" class="card-class">
+          <text class="item" decode='true'>业主姓名:&emsp;{{item.name}}</text>
+          <text class="item" decode='true'>电话:&emsp;&emsp;&emsp;{{item.tel}}</text>
+          <text class="item" decode='true'>区域:&emsp;&emsp;&emsp;{{item.province}}</text>
+          <text class="item" decode='true'>地址:&emsp;&emsp;&emsp;{{item.addr}}</text>
+        </view>
+      </block>
+       <block  wx:else="{{leftArray.length == 0}}">
+        <view class="none-info">没有相关信息!</view>
+      </block>
+    </scroll-view>
+    <scroll-view wx:else animation="{{contentRight}}" scroll-y style="opacity:0;height: calc(100% - 10px);width:calc(100% - 10px);padding:5px;">
+     <block  wx:if="{{rightArray.length > 0}}">
+      <view wx:if="{{rightArray.length > 0}}" wx:for="{{rightArray}}" class="card-class">
+        <text class="item" decode='true'>业主姓名:&emsp;{{item.name}}</text>
+        <text class="item" decode='true'>电话:&emsp;&emsp;&emsp;{{item.tel}}</text>
+        <text class="item" decode='true'>区域:&emsp;&emsp;&emsp;{{item.province}}</text>
+        <text class="item" decode='true'>地址:&emsp;&emsp;&emsp;{{item.addr}}</text>
+        <text class="item"  wx:if="{{item.status == -1 && item.reason}}" decode='true'>失败原因:&emsp;{{item.reason}}</text>
+        <view class="item-handle">
+            <text class="status-css-delete" id="{{item.id}}" bindtap='deleteMyHouseById'>删除</text>
+            <text wx:if="{{item.status == 0}}" class="status-css-wait">审核中</text>
+            <text wx:else="{{item.status == -1}}" class="status-css-fail">审核失败</text>
+        </view>
+      </view>
+    </block>
+    <block  wx:else="{{rightArray.length == 0}}">
+      <view class="none-info">没有相关信息!</view>
+    </block>
+    </scroll-view>
+  </view>
+</view>

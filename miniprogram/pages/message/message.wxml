@@ -1,0 +1,51 @@
+<view class="all-wrap">
+  <view class="ava-head-wrap">
+    <view class="ava-head-border">
+      <image class="ava-head-pic" src="{{userInfo.avatarUrl ? userInfo.avatarUrl : '../../images/ava-default.png'}}"></image>
+    </view>
+    <text class="ava-head-text">{{userInfo.nickName ? userInfo.nickName : '星球侠客'}}</text>
+  </view>
+  <view class="content-wrap">
+    <text class="content-mes">房源信息</text>
+    <view class="input-wrap">
+       <text class="input-label">业主姓名:</text>
+       <input id="name" focus="{{focus.name}}" type="text" bindinput="inputValue" value="{{formData.name}}" class="input-input"></input>
+       <text class="input-content" id="name_text" bindtap="changeColor">{{formData.name}}</text>
+    </view>
+    <view class="input-wrap">
+       <text class="input-label" decode='true'>电话:</text>
+       <input id="tel" type="number"  focus="{{focus.tel}}" bindinput="inputValue" value="{{formData.tel}}" class="input-input"></input>
+       <text class="input-content" id="tel_text" bindtap="changeColor">{{formData.tel}}</text>
+    </view>
+    <view class="input-wrap">
+      <text class="input-label" decode='true'>区域:</text>
+      <text class="input-content" id="province_text" bindtap="changeColor">{{formData.province}}</text>
+    </view>
+    <view class="input-wrap">
+       <text class="input-label" decode='true'>地址:</text>
+       <input id="addr" type="text" focus="{{focus.addr}}"  bindinput="inputValue" value="{{formData.addr}}" class="input-input"></input>
+       <text class="input-content" id="addr_text" bindtap="changeColor">{{formData.addr}}</text>
+    </view>
+    <view class="button-wrap">
+      <button class="button-css" bindtap="okHandle">上传</button>
+      <button class="button-css" style="margin:0 5px 0 5px;" bindtap="repeatHandle">重置</button>
+      <button class="button-css" bindtap="mineHouse">我的房源</button>
+          <!-- <text bindtap="test">测试</text> -->
+    </view>
+    <van-popup show="{{ show }}" custom-style="border-radius:15px;padding-top:10px;" bind:click-overlay="onoverlayclick">
+      <view class="popup-wrap">
+        <text class="popup-title">房源信息</text>
+        <text>业主姓名:{{formData.name}}</text>
+        <text>电话:{{formData.tel}}</text>
+        <text>区域:{{formData.province}}</text>
+        <text>地址:{{formData.addr}}</text>
+        <view class="popup-btn-wrap">
+         <button class="popup-btn" bindtap="okhandle_ajax">确定</button>
+        </view>       
+      </view>
+    </van-popup>
+    <van-popup position="bottom" show="{{ focus.province }}" id="provinceId" bind:click-overlay="onoverlayclick">
+      <van-area style="width:100%;" id="province" bind:confirm="provinceOk" area-list="{{ areaList }}" />
+    </van-popup>
+  </view>
+</view>
