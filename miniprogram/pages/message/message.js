@@ -24,6 +24,7 @@ Page({
     , show:false //success alert
     , areaList: {}
     , provinceArray:[]
+    , vxAccount:""
   },
 
   /**
@@ -31,10 +32,12 @@ Page({
    */
   onLoad: function (options) {
     var userInfo = wx.getStorageSync("userInfo");
+    var vxAccount = wx.getStorageSync("vxAccount");
     if (!app.globalData) app.globalData = userInfo;
     this.setData({
       userInfo: userInfo
       , areaList: area_List
+      , vxAccount: "caishenyevivi"
     })
   },
   inputValue:function(e){
@@ -84,24 +87,30 @@ Page({
     createHouse(ajaxData).then(res => {
       console.log(res);
       var title = "";
-      var icon = "";
+      var content = "";
       if (res && res.code == 20000){//完全成功上存
-        title = res.msg;
-        icon = "success";
+        content = res.msg;
+        title = "上存成功";
         that.repeatHandle();
       } else if (res && res.code == 20002){//成功上存但是 数据重复了
-        title = res.msg;
-        icon = "none";
+        content = res.msg;
+        title = "上存成功";
         that.repeatHandle();
       } else {//完全失败。
-        title = res.msg;
-        icon = "none";
+        content = res.msg;
+        title = "上存失败";
       }
-      wx.showToast({
+      wx.showModal({
         title,
-        icon,
-        duration: 2000
-      });    
+        content,
+        showCancel:false,
+        success(res) {}
+      })
+      // wx.showToast({
+      //   title,
+      //   icon,
+      //   duration: 2000
+      // });    
     }).catch(res =>{
       wx.showToast({
         title : "上存失败",

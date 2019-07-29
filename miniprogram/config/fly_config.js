@@ -1,7 +1,7 @@
 const Fly = require('../tools/fly.js');
 const fly = new Fly();
-const baseURI = "http://10.0.0.46:5765";
-const baseURL = "http://10.0.0.46:5765";
+const baseURI = "https://house.aiturbo.vip";
+const baseURL = "https://house.aiturbo.vip";
 fly.config.baseURI = baseURI;
 fly.config.baseURL = baseURI;
 

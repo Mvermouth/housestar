@@ -10,12 +10,12 @@
     <view class="input-wrap">
        <text class="input-label">业主姓名:</text>
        <input id="name" focus="{{focus.name}}" type="text" bindinput="inputValue" value="{{formData.name}}" class="input-input"></input>
-       <text class="input-content" id="name_text" bindtap="changeColor">{{formData.name}}</text>
+       <!-- <text class="input-content" id="name_text" bindtap="changeColor">{{formData.name}}</text> -->
     </view>
     <view class="input-wrap">
        <text class="input-label" decode='true'>电话:</text>
        <input id="tel" type="number"  focus="{{focus.tel}}" bindinput="inputValue" value="{{formData.tel}}" class="input-input"></input>
-       <text class="input-content" id="tel_text" bindtap="changeColor">{{formData.tel}}</text>
+       <!-- <text class="input-content" id="tel_text" bindtap="changeColor">{{formData.tel}}</text> -->
     </view>
     <view class="input-wrap">
       <text class="input-label" decode='true'>区域:</text>
@@ -24,13 +24,20 @@
     <view class="input-wrap">
        <text class="input-label" decode='true'>地址:</text>
        <input id="addr" type="text" focus="{{focus.addr}}"  bindinput="inputValue" value="{{formData.addr}}" class="input-input"></input>
-       <text class="input-content" id="addr_text" bindtap="changeColor">{{formData.addr}}</text>
+       <!-- <text class="input-content" id="addr_text" bindtap="changeColor">{{formData.addr}}</text> -->
     </view>
+    <view class="chink"></view>
+    <view class="tips">
+      <text class="tips-head">活动规则</text>
+      <text>1. 请填写业主的真实姓名,业主手机号和盘源地址,有效盘源的定义为以上三个信息准确且房子依然在售/在租。</text>
+      <text>2. 我们会在三天内对您填写的信息进行核实,每个真实房源会得到30元/条奖励金。</text>
+      <text>3. 请加微信号<text class="vxCss" selectable='true'>{{vxAccount}}</text>,核实通过后,该微信号将在每周二和周五打款。</text>
+    </view>
+     <view class="chink"></view>
     <view class="button-wrap">
       <button class="button-css" bindtap="okHandle">上传</button>
       <button class="button-css" style="margin:0 5px 0 5px;" bindtap="repeatHandle">重置</button>
       <button class="button-css" bindtap="mineHouse">我的房源</button>
-          <!-- <text bindtap="test">测试</text> -->
     </view>
     <van-popup show="{{ show }}" custom-style="border-radius:15px;padding-top:10px;" bind:click-overlay="onoverlayclick">
       <view class="popup-wrap">

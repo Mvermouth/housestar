@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.7.3",
 	"appid": "wx897638c8f27bf688",
-	"projectname": "housesource",
+	"projectname": "miniprogram-test-1",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

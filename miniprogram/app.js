@@ -1,7 +1,7 @@
 //app.js
 //线上调试模式。
 wx.setEnableDebug({
-  enableDebug: true
+  enableDebug: false
 });
 wx.clearStorageSync();
 const { userLogin } = require('./apis/login.js');
@@ -16,7 +16,7 @@ App({
         success: function (res) {
           if (res.confirm) {
             // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
-            updateManager.applyUpdate()
+            updateManager.applyUpdate();
           }
         }
       })
@@ -35,6 +35,7 @@ App({
             if (respon && respon.code == 0){
               wx.setStorageSync('userid', respon.data.id);
               wx.setStorageSync('openId', respon.data.openId);
+              wx.setStorageSync('vxAccount', respon.data.vxAccount);
               wx.setStorageSync("token", true);
             }
           });
